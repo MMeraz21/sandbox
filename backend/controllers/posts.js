@@ -25,6 +25,8 @@ const User = require('../models/user')
 
      postRouter.post('/', async (request, response) => {
         const post = new Post(request.body)
+        const currentDate = new Date();
+        post.date = currentDate.toLocaleString();
         const decodedToken = jwt.verify(getTokenFrom(request), process.env.SECRET)
         if (!decodedToken.id) {
           return response.status(401).json({ error: 'token invalid' })

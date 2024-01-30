@@ -6,6 +6,7 @@ const postSchema = new mongoose.Schema({
         maxlength: 250
     },
     likes: Number,
+    date: String,
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
