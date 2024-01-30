@@ -36,12 +36,12 @@ const User = require('../models/user')
         if (typeof post.likes === 'undefined' || post.likes === null) {
           post.likes = 0
         } 
-        if (!post.content) {
+        if (!post.Content) {
             return response.status(400).end()
         }
     
         const savedPost = await post.save()
-        user.posts = user.posts.concat(savedBlog._id)
+        user.posts = user.posts.concat(savedPost._id)
         await user.save()
         response.status(201).json(savedPost)
       })
