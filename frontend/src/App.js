@@ -4,6 +4,7 @@ import postService from './services/posts'
 import {BrowserRouter as Router, Routes, Switch, Route, Link, useNavigate} from 'react-router-dom'
 import Landing from './pages/Landing'
 import Loginpage from './pages/loginpage'
+import Home from './pages/Home'
 
 const App = () =>{
 const[user,setUser] = useState(null)
@@ -49,11 +50,13 @@ const handleLogout = async(event) => {
   <div>
     <h1>Welcome to my Sandbox!</h1>
         <Routes>
+          <Route index element={<Home />}/>
+          <Route path="/home" element={<Home />} />
           <Route path="/Landing" element={<Landing />} />
           <Route path="/loginpage" element={<Loginpage />} />
         </Routes>
 
-        <Link style={padding} to="/loginpage">LOGIN</Link>
+        {/* <Link style={padding} to="/loginpage">LOGIN</Link> */}
   </div>);
 
   }
