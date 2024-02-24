@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import loginService from './services/login'
 import postService from './services/posts'
-import {BrowserRouter as Router, Route, Switch, useNavigate} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Switch, Route, Link, useNavigate} from 'react-router-dom'
 //import{useNavigate} from 'react-router-dom'
 import Landing from './pages/Landing'
 
@@ -31,7 +31,7 @@ const handleLogin = async(event)=>{
     setUser(user)
     setUsername("")
     setPassword("")
-    navigate(Landing)
+    navigate("/Landing")
   }catch(exception){
     console.log("didnt work")
   }
@@ -74,9 +74,9 @@ const handleLogout = async(event) => {
 
   return(
     <div>
-      {/* <Router>
-        <Route path="/" element={<Home />} />
-      </Router> */}
+      <Routes>
+        <Route path="/Landing" element={<Landing />} />
+      </Routes>
       hiiii
       LOGGED IN 
       {user.username}
