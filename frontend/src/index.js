@@ -13,6 +13,12 @@ root.render(
   </BrowserRouter>
 );
 
+// root.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>
+// );
+
 // ReactDOM.render(
 //   <BrowserRouter>
 //     <App/>

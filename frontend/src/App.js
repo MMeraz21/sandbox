@@ -43,14 +43,49 @@ const handleLogout = async(event) => {
   
 
 
-  if(user === null){
-    return(
-      <div>
-        <h2>log in to the application</h2>
-        <form onSubmit={handleLogin}>
+  // if(user === null){
+  //   return(
+  //     <div>
+  //       <h2>log in to the application</h2>
+  //       <form onSubmit={handleLogin}>
+  //         <div>
+  //           username
+  //           <input
+  //           type = "text"
+  //           value = {username}
+  //           name = "Username"
+  //           onChange = {({target}) => setUsername(target.value)}
+  //           />
+  //         </div>
+  //         <div>
+  //           password
+  //           <input
+  //           type = "text"
+  //           value = {password}
+  //           name = "Password"
+  //           onChange = {({target}) => setPassword(target.value)}
+  //           />
+  //         </div>
+  //         <button type="submit">login</button>
+  //       </form>
+  //     </div>
+  //   )
+  // }
+
+  return (
+    <div>
+
+        <Routes>
+          <Route path="/Landing" element={<Landing />} />
+        </Routes>
+      
+      {user === null ? (
+        <div>
+          <h2>Log in to the application</h2>
+          <form onSubmit={handleLogin}>
           <div>
-            username
-            <input
+             username
+             <input
             type = "text"
             value = {username}
             name = "Username"
@@ -68,23 +103,19 @@ const handleLogout = async(event) => {
           </div>
           <button type="submit">login</button>
         </form>
-      </div>
-    )
-  }
-
-  return(
-    <div>
-      <Routes>
-        <Route path="/Landing" element={<Landing />} />
-      </Routes>
-      hiiii
-      LOGGED IN 
-      {user.username}
-      <p onClick={handleLogout}>{user.name} logged in
-      <button type="button">logout</button>
-      </p>
+        </div>
+      ) : (
+        <div>
+          <p>
+            hiiii LOGGED IN {user.username}
+            <button type="button" onClick={handleLogout}>
+              Logout
+            </button>
+          </p>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default App;
