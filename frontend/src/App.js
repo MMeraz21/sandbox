@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Routes, Switch, Route, Link, useNavigate} from 
 import Landing from './pages/Landing'
 import Loginpage from './pages/loginpage'
 import Home from './pages/Home'
+import Signuppage from './pages/Signup'
 
 const App = () =>{
 const[user,setUser] = useState(null)
@@ -52,8 +53,9 @@ const handleLogout = async(event) => {
         <Routes>
           <Route index element={<Home />}/>
           <Route path="/home" element={<Home />} />
-          <Route path="/Landing" element={<Landing />} />
+          <Route path="/landing" element={<Landing />} />
           <Route path="/loginpage" element={<Loginpage />} />
+          <Route path="/signup" element={<Signuppage />} />
         </Routes>
 
         {/* <Link style={padding} to="/loginpage">LOGIN</Link> */}

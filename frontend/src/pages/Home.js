@@ -9,6 +9,8 @@ const Home = () =>{
     return(
         <div>
             <Link style={padding} to="/loginpage">LOGIN</Link>
+            <Link style={padding} to="/signup">SIGNUP</Link>
+
         </div>
     )
 }
