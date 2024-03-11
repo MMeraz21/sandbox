@@ -4,13 +4,20 @@ import loginService from '../services/login'
 import postService from '../services/posts'
 import {BrowserRouter as Router, Routes, Switch, Route, Link, useNavigate} from 'react-router-dom'
 import Landing from './Landing'
+import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
+import { setGlobalUser  } from '../store'
+
 
 
 const Loginpage = () => {
     const[user,setUser] = useState(null)
-    const [username, setUsername] = useState('') 
-    const [password, setPassword] = useState('') 
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
     const navigate = useNavigate()
+
+    const dispatch = useDispatch();
+    const thisUser = useSelector((state) => state.user.value)
 
     useEffect(() => {
         const loggedUserJSON = window.localStorage.getItem('loggedUser')
@@ -30,6 +37,7 @@ const Loginpage = () => {
           postService.setToken(user.token)
           console.log(user.token)
           setUser(user)
+          dispatch(setGlobalUser(user))
           setUsername("")
           setPassword("")
           navigate("/Landing")

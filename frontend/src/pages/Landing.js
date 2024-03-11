@@ -1,12 +1,16 @@
-import React from 'react'
+import React from "react";
+import { useSelector } from "react-redux";
 
 const Landing = () => {
-    return(
-        <div>
-            <h1>Home Page</h1>
-            <div>HI HELLOOOOOOOO</div>
-        </div>
-    )
-}
+
+  const user = useSelector((state) => state.user.value)
+  return (
+    <div>
+      <h1>Home Page</h1>
+      <div>Hi {user.name} !</div>
+      <div>{user.username} !</div>
+    </div>
+  );
+};
 
 export default Landing;
