@@ -5,6 +5,7 @@ import userService from "../services/users";
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setGlobalUser  } from '../store'
+import FriendList from "../components/FriendList";
 
 
 const Landing = () => {
@@ -52,6 +53,7 @@ const Landing = () => {
           <button onClick={() => handleAddFriend(item.id)}>Add friend</button>
           </li>))}
       </ul>
+      <FriendList data={users.filter(obj => user.friends.includes(obj.id) )}/>
     </div>
   );
 };
