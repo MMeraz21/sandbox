@@ -37,10 +37,20 @@ usersRouter.get('/', async (request, response) => {
  })
 
   usersRouter.put('/:id', async (request, response) => {    
+    const { username, name, posts, friends } = request.body;
+
+    const updatedFields = {
+      username,
+      name,
+      posts,
+      friends,
+    }
+
     try {
-      const result = await User.findByIdAndUpdate(request.params.id, user, { new: false })
+      const result = await User.findByIdAndUpdate(request.params.id, updatedFields, { new: true })
       response.json(result.toJSON())
     } catch (error) {
+      console.error("Error updating user:" + error)
       response.status(400).end()
     }
   })

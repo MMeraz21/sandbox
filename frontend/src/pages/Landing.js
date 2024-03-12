@@ -1,14 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
+//import { useSelector } from "react-redux";
 import UserSearchBar from "../components/UserSearchBar";
 import userService from "../services/users";
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setGlobalUser  } from '../store'
 
 
 const Landing = () => {
   const[users, setUsers] = useState([])
   const[filteredItems, setFilteredItems] = useState([])
-  //console.log(users)
+
+  const dispatch = useDispatch();
 
   const user = useSelector((state) => state.user.value)
 
@@ -26,9 +29,15 @@ const Landing = () => {
   }
 
   const handleAddFriend = (id) =>{
-    //user.friends.push(id)
-    //userService.update(user)
-    console.log(user)
+    console.log(id)
+
+    const updatedUser = { ...user, friends: [...user.friends, id] };
+    userService.update(updatedUser).then(() => {
+      dispatch(setGlobalUser(updatedUser))
+
+    }).catch(error => {
+      console.error("Error updating user:", error);
+    })
   }
 
   return (

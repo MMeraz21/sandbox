@@ -16,8 +16,9 @@ const getAll = () => {
     // const config = {
     //   headers: { Authorization: token }
     // }
+    console.log(objectToUpdate)
     const response = await axios.put(`${baseUrl}/${objectToUpdate.id}`, objectToUpdate)
     return response.data
   }
 
-  export default {getAll, create}
+  export default {getAll, create, update}
