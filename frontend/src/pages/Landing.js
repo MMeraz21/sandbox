@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 const Landing = () => {
   const[users, setUsers] = useState([])
   const[filteredItems, setFilteredItems] = useState([])
+  //console.log(users)
 
   const user = useSelector((state) => state.user.value)
 
@@ -20,10 +21,15 @@ const Landing = () => {
   useEffect(hook, [])
 
   const handleSearch = (term) =>{
-    const filtered = users.filter((item) => item.toLowerCase().includes(term.toLowerCase()))
+    const filtered = users.filter((item) => item.username.toLowerCase().includes(term.toLowerCase()))
     setFilteredItems(filtered)
   }
 
+  const handleAddFriend = (id) =>{
+    //user.friends.push(id)
+    //userService.update(user)
+    console.log(user)
+  }
 
   return (
     <div>
@@ -32,7 +38,10 @@ const Landing = () => {
       <div>{user.username} !</div>
       <UserSearchBar data = {users} onSearch={handleSearch}/>
       <ul>
-        {filteredItems.map((item, index) => (<li key={index}>{item}</li>))}
+        {filteredItems.map((item, index) => (<li key={index}>
+          {item.username}
+          <button onClick={() => handleAddFriend(item.id)}>Add friend</button>
+          </li>))}
       </ul>
     </div>
   );

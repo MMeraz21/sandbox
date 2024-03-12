@@ -11,8 +11,8 @@ const User = require('../models/user')
     })
 
     postRouter.get('/:id', async (request,response) => {
-        const post = await Blog.findById(request.params.id)
-        esponse.json(post)
+        const post = await Post.findById(request.params.id)
+        response.json(post)
      })
 
     const getTokenFrom = request => {

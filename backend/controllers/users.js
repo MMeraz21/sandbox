@@ -31,4 +31,18 @@ usersRouter.get('/', async (request, response) => {
 
   })
 
+  usersRouter.get('/:id', async (request,response) => {
+    const post = await User.findById(request.params.id)
+    response.json(post)
+ })
+
+  usersRouter.put('/:id', async (request, response) => {    
+    try {
+      const result = await User.findByIdAndUpdate(request.params.id, user, { new: false })
+      response.json(result.toJSON())
+    } catch (error) {
+      response.status(400).end()
+    }
+  })
+  
 module.exports = usersRouter

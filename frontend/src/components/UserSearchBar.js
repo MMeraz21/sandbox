@@ -12,7 +12,7 @@ const UserSearchBar = ({data, onSearch}) => {
 
     return(
         <div>
-            <label htmlFor='search'>Search:</label>
+            <label htmlFor='search'>Find Friends:</label>
             <input
                 type = "text"
                 id = "search"

@@ -33,6 +33,7 @@ const Loginpage = () => {
         console.log("loggin in with", username, password)
         try{
           const user = await loginService.login({username,password})
+          console.log(user)
           window.localStorage.setItem("loggedUser", JSON.stringify(user))
           postService.setToken(user.token)
           console.log(user.token)

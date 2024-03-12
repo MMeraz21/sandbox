@@ -15,6 +15,12 @@ const userSchema = new mongoose.Schema({
       ref: 'Post'
     }
   ],
+  friends: [
+    {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Friend'
+    }
+  ]
 })
 
 userSchema.plugin(uniqueValidator)
