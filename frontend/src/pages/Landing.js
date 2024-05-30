@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setGlobalUser  } from '../store'
 import FriendList from "../components/FriendList";
 
+//comment
+
 
 const Landing = () => {
   const[users, setUsers] = useState([])
