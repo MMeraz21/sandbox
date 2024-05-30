@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setGlobalUser  } from '../store'
 import FriendList from "../components/FriendList";
 
-//comment
+//commentfwhegw
 
 
 const Landing = () => {
