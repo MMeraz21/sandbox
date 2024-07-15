@@ -9,7 +9,7 @@
           ...state,
           user: action.payload,
         };
-      // Add other cases as needed
+        
       default:
         return state;
     }

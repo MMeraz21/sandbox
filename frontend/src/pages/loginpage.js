@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './loginpage.module.css'
 import { useState, useEffect } from 'react'
 import loginService from '../services/login'
 import postService from '../services/posts'
@@ -47,32 +48,35 @@ const Loginpage = () => {
         }
       }
 
-    return(
-        <div>
-<h2>Log in to the application</h2>
-    <form onSubmit={handleLogin}>
-    <div>
-       username
-       <input
-      type = "text"
-      value = {username}
-      name = "Username"
-      onChange = {({target}) => setUsername(target.value)}
-      />
-    </div>
-    <div>
-      password
-      <input
-      type = "text"
-      value = {password}
-      name = "Password"
-      onChange = {({target}) => setPassword(target.value)}
-      />
-    </div>
-    <button type="submit">login</button>
-  </form>
-  </div>
+    return (
+      <div className={styles.loginContainer}>
+        <h2>Log in to the application</h2>
+        <form onSubmit={handleLogin}>
+          <div>
+            username
+            <input
+              type="text"
+              value={username}
+              name="Username"
+              onChange={({ target }) => setUsername(target.value)}
+              className={styles.inputField}
+            />
+          </div>
+          <div>
+            password
+            <input
+              type="text"
+              value={password}
+              name="Password"
+              onChange={({ target }) => setPassword(target.value)}
+              className={styles.inputField}
+            />
+          </div>
+          <button type="submit" className={styles.button}>login</button>
+        </form>
+      </div>
     )
+
 }
 
 export default Loginpage;
