@@ -1,16 +1,21 @@
 import React , { useState }from 'react'
+import styles from './FriendList.module.css'
 
 const FriendList = ({data}) =>{
 console.log(data)
 
     return(
-        <div>
-        Friends 
-        <ul>
-        {data.map((item, index) => (<li key={index}>
-          {item.username}
-          </li>))}
-      </ul>
+        <div className={styles.friendListSidebar}>
+            <div className={styles.friendListTitle}>
+            Friends 
+            <ul className={styles.friendList}>
+            {data.map((item, index) => (
+                <li key={index} className={styles.friendListItem}>
+                <span className={styles.friendUsername}>{item.username}</span>
+            </li>
+            ))}
+            </ul>
+            </div>
         </div>
     );
 }

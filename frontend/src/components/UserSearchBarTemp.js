@@ -1,5 +1,5 @@
 import React , { useState }from 'react'
- //hiiiii
+import styles from './UserSearchBar.module.css'
 
 const UserSearchBar = ({data, onSearch}) => {
     const [searchTerm, setSearchTerm] = useState('')
@@ -11,14 +11,15 @@ const UserSearchBar = ({data, onSearch}) => {
     }
 
     return(
-        <div>
-            <label htmlFor='search'>Find Friends:</label>
+        <div className={styles.searchContainer}>
+            <label htmlFor='search' className={styles.searchLabel}>Find Friends:</label>
             <input
                 type = "text"
                 id = "search"
                 value={searchTerm}
                 onChange={handleSearchChange}
                 placeholder='Type to search...'
+                className={styles.searchInput}
                 />
         </div>
     );

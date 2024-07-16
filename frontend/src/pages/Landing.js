@@ -1,5 +1,6 @@
 import React from "react";
 //import { useSelector } from "react-redux";
+import styles from './Landing.module.css'
 import UserSearchBar from "../components/UserSearchBarTemp"
 import userService from "../services/users";
 import { useState, useEffect } from 'react';
@@ -56,7 +57,8 @@ const Landing = () => {
       </ul>
       <FriendList data={users.filter(obj => user.friends.includes(obj.id) )}/>
     </div>
-  );
+  )
+
 };
 
 export default Landing;
