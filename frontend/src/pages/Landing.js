@@ -44,21 +44,28 @@ const Landing = () => {
   }
 
   return (
-    <div>
-      <h1>Home Page</h1>
-      <div>Hi {user.name} !</div>
-      <div>{user.username} !</div>
+    <div className={styles.container}>
+      <h1 className = {styles.header}>Home Page</h1>
+      <div className = {styles.greeting}>Hi {user.name} !</div>
+      <div className = {styles.greeting}>{user.username} !</div>
       <UserSearchBar data = {users} onSearch={handleSearch}/>
-      <ul>
-        {filteredItems.map((item, index) => (<li key={index}>
+      <ul className = {styles.userList}>
+        {filteredItems.map((item, index) => (
+          <li key={index} className = {styles.userListItem}>
           {item.username}
-          <button onClick={() => handleAddFriend(item.id)}>Add friend</button>
-          </li>))}
+          <button 
+            onClick={() => handleAddFriend(item.id)}
+            className={styles.addButton}
+            >
+              Add friend
+            </button>
+          </li>
+        ))}
       </ul>
       <FriendList data={users.filter(obj => user.friends.includes(obj.id) )}/>
     </div>
   )
 
-};
+}
 
 export default Landing;
