@@ -25,10 +25,16 @@ const Landing = () => {
   const hook = () => {
     console.log('effect')
     userService.getAll().then(initialArr => setUsers(initialArr))   //initialArr is what we get from noteservice obj (array), we then set it to persons
-    postService.getAll().then(initialArr => setPosts(initialArr))
+    // postService.getAll().then(initialArr => setPosts(initialArr))
+    postService.getAll().then((initialArr) => {  //not a fan of this implementation, should be a way to get a users posts from backend with a query
+      const filteredPosts = initialArr.filter(post =>
+        post.user.id === user.id || user.friends.includes(post.user.id)
+      )
+      setPosts(filteredPosts)
+    })
   }
 
-  useEffect(hook, [])
+  useEffect(hook, [user])
 
   const handleSearch = (term) =>{
     const filtered = users.filter((item) => item.username.toLowerCase().includes(term.toLowerCase()))

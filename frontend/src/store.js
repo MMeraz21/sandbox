@@ -1,5 +1,7 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
-import rootReducer from './reducers';
+import storage from 'redux-persist/lib/storage'
+import { persistReducer, persistStore } from 'redux-persist'
+import { combineReducers } from '@reduxjs/toolkit';
 
 const userSlice = createSlice({
     name: 'user',
@@ -12,6 +14,15 @@ const userSlice = createSlice({
   });
   
   export const { setGlobalUser } = userSlice.actions;
+
+  const persisConfig = {
+    key: 'root',
+    storage,
+  }
+
+  const rootReducer = combineReducers({
+    user: userSlice.reducer,
+  })
   
   const store = configureStore({
     reducer: {
