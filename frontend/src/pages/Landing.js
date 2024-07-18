@@ -30,6 +30,7 @@ const Landing = () => {
       const filteredPosts = initialArr.filter(post =>
         post.user.id === user.id || user.friends.includes(post.user.id)
       )
+      filteredPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
       setPosts(filteredPosts)
     })
   }
@@ -54,7 +55,8 @@ const Landing = () => {
   }
 
   const handlePostCreated = (newPost) => {
-    setPosts(posts.concat(newPost))
+    // setPosts(posts.concat(newPost))
+    setPosts([newPost, ...posts])
   }
 
   return (

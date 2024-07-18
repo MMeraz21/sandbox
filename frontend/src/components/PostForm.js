@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import styles from './PostForm.module.css'
 import postService from '../services/posts'
 
 const PostForm = ({ onPostCreated }) => {
     const [content, setContent] = useState('')
+    const user = useSelector((state) => state.user.value)
 
     const handleSubmit = async(event) => {
         event.preventDefault()
@@ -12,10 +14,23 @@ const PostForm = ({ onPostCreated }) => {
             const newPost = {
                 Content: content,
                 likes: 0,
+                user: {
+                    id: user.id, 
+                    username: user.username, 
+                    name: user.name 
+                }
+                
 
             }
+            console.log("post ", newPost)
 
             const createdPost = await postService.create(newPost)
+            createdPost.user = {  //this works, dont know if its the best way of handling this issue but idk
+                id: user.id, 
+                username: user.username, 
+                name: user.name 
+            }
+            console.log("created post", createdPost)
             onPostCreated(createdPost)
             setContent('')
         }catch (error){
