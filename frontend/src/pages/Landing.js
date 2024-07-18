@@ -74,8 +74,14 @@ const Landing = () => {
       <div className = {styles.postsContainer}>
         {posts.map((post) => (
           <div key = {post.id} className = {styles.post}>
-            <p>{post.Content}</p>
-            <small>Likes: {post.likes}</small>
+            <div className = {styles.postHeader}>
+              <span className = {styles.postOwner}>{post.user.username}</span>
+            </div>
+            <p className={styles.postContent}>{post.Content}</p>
+            <div className={styles.postFooter}>
+              <small className={styles.postDate}>{post.date}</small>
+              <small className = {styles.postLikes}>Likes: {post.likes}</small>
+            </div>
           </div>
         ))}
       </div>
