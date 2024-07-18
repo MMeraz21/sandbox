@@ -29,6 +29,13 @@ import { combineReducers } from '@reduxjs/toolkit';
 
   const store = configureStore({
     reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) => 
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
+          ignoredPaths: ['register'],
+        }
+      })
     // reducer: {
     //   user: userSlice.reducer,
     //   // Add more reducers as needed
