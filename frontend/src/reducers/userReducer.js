@@ -1,3 +1,5 @@
+//i dont think this is needed anymore???
+    
     const initialState = {
         user: null,
     };

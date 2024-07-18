@@ -3,19 +3,19 @@ import storage from 'redux-persist/lib/storage'
 import { persistReducer, persistStore } from 'redux-persist'
 import { combineReducers } from '@reduxjs/toolkit';
 
-const userSlice = createSlice({
-    name: 'user',
-    initialState: { value: null },
-    reducers: {
-      setGlobalUser: (state, action) => {
-        state.value = action.payload;
+  const userSlice = createSlice({
+      name: 'user',
+      initialState: { value: null },
+      reducers: {
+        setGlobalUser: (state, action) => {
+          state.value = action.payload;
+        },
       },
-    },
-  });
+    });
   
   export const { setGlobalUser } = userSlice.actions;
 
-  const persisConfig = {
+  const persistConfig = {
     key: 'root',
     storage,
   }
@@ -24,11 +24,19 @@ const userSlice = createSlice({
     user: userSlice.reducer,
   })
   
+  const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+
   const store = configureStore({
-    reducer: {
-      user: userSlice.reducer,
-      // Add more reducers as needed
-    },
-  });
+    reducer: persistedReducer,
+    // reducer: {
+    //   user: userSlice.reducer,
+    //   // Add more reducers as needed
+    // },
+  })
+
+  const persistor = persistStore(store)
   
-  export default store;
+  // export default store;
+
+  export{ store, persistor}
