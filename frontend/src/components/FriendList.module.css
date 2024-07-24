@@ -1,39 +1,35 @@
 .friendListSidebar {
-    top: 0;
-    right: 0;
-    width: 175px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
-    /* height: calc(100vh - 60px); */
-    height: 999px;
-    margin-top: 65px;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .friendListTitle {
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 15px;
-  }
-  
-  .friendList {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .friendListItem {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .friendUsername {
-    font-size: 1.1em;
-    color: #555;
-  }
+  position: relative;
+  height: inherit;
+  width: 20%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.friendListTitle {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.friendList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.friendListItem {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.friendUsername {
+  font-size: 1.1em;
+  color: #555;
+}

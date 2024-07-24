@@ -62,39 +62,42 @@ const Landing = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className = {styles.header}>Home Page</h1>
-      <div className = {styles.greeting}>Hi {user.name} !</div>
-      <div className = {styles.greeting}>{user.username} !</div>
-      <UserSearchBar data = {users} onSearch={handleSearch}/>
-      <ul className = {styles.userList}>
-        {filteredItems.map((item, index) => (
-          <li key={index} className = {styles.userListItem}>
-          {item.username}
-          <button 
-            onClick={() => handleAddFriend(item.id)}
-            className={styles.addButton}
-            >
-              Add friend
-            </button>
-          </li>
-        ))}
-      </ul>
-      <PostForm onPostCreated={handlePostCreated} />
-      <div className = {styles.postsContainer}>
-        {posts.map((post) => (
-          <div key = {post.id} className = {styles.post}>
-            <div className = {styles.postHeader}>
-              <span className = {styles.postOwner}>{post.user.username}</span>
+      <div className={styles.feed}>
+        <h1 className = {styles.header}>Home Page</h1>
+        <div className = {styles.greeting}>Hi {user.name} !</div>
+        <div className = {styles.greeting}>{user.username} !</div>
+        <UserSearchBar data = {users} onSearch={handleSearch}/>
+        <ul className = {styles.userList}>
+          {filteredItems.map((item, index) => (
+            <li key={index} className = {styles.userListItem}>
+            {item.username}
+            <button 
+              onClick={() => handleAddFriend(item.id)}
+              className={styles.addButton}
+              >
+                Add friend
+              </button>
+            </li>
+          ))}
+        </ul>
+        <PostForm onPostCreated={handlePostCreated} />
+        <div className = {styles.postsContainer}>
+          {posts.map((post) => (
+            <div key = {post.id} className = {styles.post}>
+              <div className = {styles.postHeader}>
+                <span className = {styles.postOwner}>{post.user.username}</span>
+              </div>
+              <p className={styles.postContent}>{post.Content}</p>
+              <div className={styles.postFooter}>
+                <small className={styles.postDate}>{post.date}</small>
+                <small className = {styles.postLikes}>Likes: {post.likes}</small>
+              </div>
             </div>
-            <p className={styles.postContent}>{post.Content}</p>
-            <div className={styles.postFooter}>
-              <small className={styles.postDate}>{post.date}</small>
-              <small className = {styles.postLikes}>Likes: {post.likes}</small>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-      <FriendList data={users.filter(obj => user.friends.includes(obj.id) )}/>
+
+      <FriendList id="sidebar" data={users.filter(obj => user.friends.includes(obj.id) )}/>
     </div>
   )
 
