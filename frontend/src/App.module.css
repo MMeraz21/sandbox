@@ -28,6 +28,27 @@
   color: #61dafb;
 }
 
+.titleBar {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #2980b9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

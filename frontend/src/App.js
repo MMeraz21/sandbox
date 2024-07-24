@@ -6,6 +6,7 @@ import Landing from './pages/Landing'
 import Loginpage from './pages/loginpage'
 import Home from './pages/Home'
 import Signuppage from './pages/Signup'
+import styles from './App.module.css'
 
 const App = () =>{
 const[user,setUser] = useState(null)
@@ -49,7 +50,7 @@ const handleLogout = async(event) => {
   
   return(
   <div>
-    <h1>Welcome to my Sandbox!</h1>
+    <h1 className = {styles.titleBar}>Sandbox</h1>
         <Routes>
           <Route index element={<Home />}/>
           <Route path="/home" element={<Home />} />

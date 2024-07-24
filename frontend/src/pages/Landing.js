@@ -32,6 +32,7 @@ const Landing = () => {
       )
       filteredPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
       setPosts(filteredPosts)
+      //console.log(filteredPosts)
     })
   }
 
