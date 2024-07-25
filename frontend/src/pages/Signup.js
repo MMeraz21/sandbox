@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import userService from '../services/users'
 import Home from './Home'
+import styles from './Signup.module.css'
 
 const Signuppage = () =>{
     const[user,setUser] = useState(null)
@@ -32,37 +33,40 @@ const Signuppage = () =>{
     }
 
     return(
-        <div>
-            <h1>Sign Up!</h1>
+        <div className={styles.formContainer}>
+            <h3>Sign Up!</h3>
             <form onSubmit={handleCreateUser}>
-            <div>
-                name
+            <div className={styles.inputGroup}> 
                 <input
+                className = {styles.inputField}
                 type = "text"
                 value = {name}
                 name = "Name"
                 onChange = {({target}) => setName(target.value)}
+                placeholder='Name'
                 />
             </div>
-            <div>
-                username
+            <div className={styles.inputGroup}>
                 <input
+                className = {styles.inputField}
                 type = "text"
                 value = {username}
                 name = "Username"
                 onChange = {({target}) => setUsername(target.value)}
+                placeholder='Username'
                 />
             </div>
-            <div>
-                password
+            <div className={styles.inputGroup}>
                 <input
+                className = {styles.inputField}
                 type = "text"
                 value = {password}
                 name = "Password"
                 onChange = {({target}) => setPassword(target.value)}
+                placeholder='Password'
                 />
             </div>
-            <button type="submit">signup</button>
+            <button className={styles.submitButton} type="submit">Signup</button>
             </form>
         </div>
     )
