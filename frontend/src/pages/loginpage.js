@@ -53,22 +53,22 @@ const Loginpage = () => {
         <h2>Log in to the application</h2>
         <form onSubmit={handleLogin}>
           <div>
-            username
             <input
               type="text"
               value={username}
               name="Username"
               onChange={({ target }) => setUsername(target.value)}
+              placeholder='Username'
               className={styles.inputField}
             />
           </div>
           <div>
-            password
             <input
               type="text"
               value={password}
               name="Password"
               onChange={({ target }) => setPassword(target.value)}
+              placeholder='Password'
               className={styles.inputField}
             />
           </div>
