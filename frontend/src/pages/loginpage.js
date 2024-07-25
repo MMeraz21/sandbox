@@ -7,7 +7,7 @@ import {BrowserRouter as Router, Routes, Switch, Route, Link, useNavigate} from 
 import Landing from './Landing'
 import { connect } from 'react-redux'
 import { useDispatch, useSelector } from 'react-redux';
-import { setGlobalUser  } from '../store'
+import { setGlobalUser } from '../store'
 
 
 

@@ -1,5 +1,6 @@
-import React from "react";
-import {Link} from 'react-router-dom';
+import React from "react"
+import { Link } from 'react-router-dom'
+import styles from './Home.module.css'
 
 const Home = () =>{
     const padding = {
@@ -7,12 +8,11 @@ const Home = () =>{
       }
 
     return(
-        <div>
-            <Link style={padding} to="/loginpage">LOGIN</Link>
-            <Link style={padding} to="/signup">SIGNUP</Link>
-
+        <div className={styles.linkContainer}>
+            <Link style={padding} to="/loginpage" className={styles.linkButton}>LOGIN</Link>
+            <Link style={padding} to="/signup" className={styles.linkButton}>SIGNUP</Link>
         </div>
     )
 }
 
-export default Home;
+export default Home
