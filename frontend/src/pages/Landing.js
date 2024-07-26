@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setGlobalUser  } from '../store'
 import FriendList from "../components/FriendList"
 import PostForm from '../components/PostForm'
+import Leftsidebar from "../components/Leftsidebar/Leftsidebar";
 
 
 
@@ -61,13 +62,18 @@ const Landing = () => {
 
   return (
     <div className={styles.container}>
+
+      <Leftsidebar></Leftsidebar>
+
       <div className={styles.feed}>
         <h1 className = {styles.header}>Home Page</h1>
         <div className = {styles.greeting}>Hi {user.name} !</div>
         <div className = {styles.greeting}>{user.username} !</div>
         <UserSearchBar data = {users} onSearch={handleSearch}/>
         <ul className = {styles.userList}>
-          {filteredItems.map((item, index) => (
+          {filteredItems
+            .filter(item => item.id !== user)
+            .map((item, index) => (
             <li key={index} className = {styles.userListItem}>
             {item.username}
             <button 
@@ -102,4 +108,4 @@ const Landing = () => {
 
 }
 
-export default Landing;
+export default Landing

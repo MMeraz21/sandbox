@@ -1,0 +1,26 @@
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 20%;
+    height: inherit;
+    background-color: #f9f9f9;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.sidebarList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebarItem {
+    margin: 10px 0;
+}
+
+.sidebarItem a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1em;
+  }
