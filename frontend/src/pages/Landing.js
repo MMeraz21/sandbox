@@ -8,7 +8,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setGlobalUser  } from '../store'
 import FriendList from "../components/FriendList"
 import PostForm from '../components/PostForm'
-import Leftsidebar from "../components/Leftsidebar/Leftsidebar";
+import Leftsidebar from "../components/Leftsidebar/Leftsidebar"
+import SearchPopup from "../components/SearchPopup/SearchPopup";
 
 
 
@@ -16,6 +17,8 @@ const Landing = () => {
   const[users, setUsers] = useState([])
   const[filteredItems, setFilteredItems] = useState([])
   const[posts, setPosts] = useState ([])
+  const [isPopupVisible, setPopupVisible] = useState(false);
+
 
   const dispatch = useDispatch();
 
@@ -60,10 +63,20 @@ const Landing = () => {
     setPosts([newPost, ...posts])
   }
 
+  const handleSearchClick = () => {
+    setPopupVisible(true);
+  }
+
+  const closePopup = () => {
+    setPopupVisible(false);
+  }
+
   return (
     <div className={styles.container}>
 
-      <Leftsidebar></Leftsidebar>
+      {/* <Leftsidebar ></Leftsidebar> */}
+      <Leftsidebar onSearchClick={handleSearchClick} />
+
 
       <div className={styles.feed}>
         <h1 className = {styles.header}>Home Page</h1>
@@ -103,6 +116,16 @@ const Landing = () => {
       </div>
 
       <FriendList id="sidebar" data={users.filter(obj => user.friends.includes(obj.id) )}/>
+
+      {isPopupVisible && (
+        <SearchPopup
+          onClose={closePopup}
+          users={users}
+          handleAddFriend={handleAddFriend}
+          user={user}
+        />
+      )}      
+
     </div>
   )
 
