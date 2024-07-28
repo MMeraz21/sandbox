@@ -6,7 +6,10 @@ const Leftsidebar = () => {
     return(
         <div className={styles.sidebar}>
             <ul className={styles.sidebarList}>
-                <li className={styles.sidebarItem}><Link to="/landing">Home</Link></li>
+                <li className={styles.sidebarItem}>
+                     <Link to="/landing"> 
+                        <i className="fas fa-home"> </i> Home</Link>
+                </li>
             </ul>
         </div>
     )

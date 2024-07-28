@@ -1,5 +1,5 @@
 .sidebar {
-    position: fixed;
+    /* position: fixed; */
     top: 60px;
     left: 0;
     width: 20%;
@@ -17,10 +17,19 @@
 
 .sidebarItem {
     margin: 10px 0;
+    padding: 15px;
+    border-radius: 15px;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .sidebarItem a {
     text-decoration: none;
     color: #333;
     font-size: 1.1em;
-  }
+    display: block;
+}
+
+.sidebarItem:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 4px 8 px rgba(0, 0, 0, 0.1);
+}

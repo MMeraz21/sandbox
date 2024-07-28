@@ -7,6 +7,7 @@ import Loginpage from './pages/loginpage'
 import Home from './pages/Home'
 import Signuppage from './pages/Signup'
 import styles from './App.module.css'
+import '@fortawesome/fontawesome-free/css/all.min.css'
 
 const App = () =>{
 const[user,setUser] = useState(null)
