@@ -16,10 +16,12 @@
 }
 
 .sidebarItem {
-    margin: 10px 0;
+    margin: 15px 0;
     padding: 15px;
     border-radius: 15px;
     transition: background-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
 }
 
 .sidebarItem a {
@@ -28,6 +30,11 @@
     font-size: 1.1em;
     display: block;
 }
+
+.sidebarItem a i {
+  margin-right: 10px; 
+}
+
 
 .sidebarItem:hover {
     background-color: #e0e0e0;
