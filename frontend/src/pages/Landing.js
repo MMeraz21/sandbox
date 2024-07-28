@@ -74,7 +74,6 @@ const Landing = () => {
   return (
     <div className={styles.container}>
 
-      {/* <Leftsidebar ></Leftsidebar> */}
       <Leftsidebar onSearchClick={handleSearchClick} />
 
 
